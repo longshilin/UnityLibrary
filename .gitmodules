@@ -1,3 +1,3 @@
-[submodule "Assets/Library"]
-	path = Assets/Library
+[submodule "Assets/Longshilin"]
+	path = Assets/Longshilin
 	url = https://github.com/longshilin/Library.git
