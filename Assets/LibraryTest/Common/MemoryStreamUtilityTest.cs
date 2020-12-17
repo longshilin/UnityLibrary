@@ -18,14 +18,30 @@ namespace LibraryTest.Common
                 arr = ms.ToArray();
             }
 
+            #region Write Bytes
 
             if (arr != null)
             {
-                for (int i = 0; i < arr.Length; i++)
+                for (var i = 0; i < arr.Length; i++)
                 {
-                    Debug.Log(string.Format("123"));
+                    Debug.Log($"{i} = {arr[i]}");
                 }
             }
+
+            #endregion
+
+            #region Read Bytes
+
+            var item2 = new Item();
+            using (MemoryStreamUtility ms = new MemoryStreamUtility(arr))
+            {
+                item2.Id = ms.ReadInt();
+                item2.Name = ms.ReadUTF8String();
+            }
+
+            Debug.Log($"{item2.Id}   {item2.Name}");
+
+            #endregion
         }
     }
 
